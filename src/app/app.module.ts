@@ -6,6 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 
 // Modulos personalizados
 import { AuthModule } from './auth/auth.module';
+import { DashboardModule } from './dashboard/dashboard.modules';
 
 // // Servicios
 import {ServiceModule} from './services/service.module';
@@ -13,15 +14,17 @@ import {ServiceModule} from './services/service.module';
 import { AppComponent } from './app.component';
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ServiceModule,
-    AuthModule
+    AuthModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
