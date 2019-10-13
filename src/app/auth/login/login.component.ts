@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuarioService } from '../../services/service.index';
+import { Usuario } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-login',
@@ -7,14 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public router: Router,
+    public usuarioService: UsuarioService
+  ) { }
 
   ngOnInit() {
   }
 
   onSubmit(data: any) {
-    console.log('email', data.email);
-    console.log('password', data.password);
+    if (data.invalid) {
+      return;
+    }
+
+    // console.log('email', data.email);
+    // console.log('password', data.password);
+
+    let usuario = new Usuario(null, data.email, data.password);
+
+    this.usuarioService.login(usuario)
+            .subscribe(resp => {
+              console.log(resp);
+            });
   }
 
 
