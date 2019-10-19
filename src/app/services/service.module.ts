@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  UsuarioService
+  UsuarioService,
+  LoginGuardGuard
 } from './service.index';
 
 @NgModule({
@@ -13,6 +14,7 @@ import {
     ],
     providers: [
       UsuarioService,
+      LoginGuardGuard
     ],
     declarations: []
   })

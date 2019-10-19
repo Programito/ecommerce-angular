@@ -13,9 +13,34 @@ import { map } from 'rxjs/operators';
 })
 export class UsuarioService {
 
+  usuario: Usuario;
+  token: string;
+
   constructor(
     public http: HttpClient) {
     console.log('Servicio de usuario listo');
+    this.cargarStorage();
+   }
+
+   estaLogueado() {
+     return (this.token.length > 5 ? true : false);
+   }
+
+   cargarStorage() {
+     if (localStorage.getItem('token')) {
+        this.token = localStorage.getItem('token');
+        console.log(localStorage.getItem('token'));
+        console.log(localStorage.getItem('usuario'));
+        if (localStorage.getItem('usuario') &&  localStorage.getItem('usuario') !== 'undefined') {
+          this.usuario = JSON.parse(localStorage.getItem('usuario'));
+        } else {
+          console.log('Usuario es null');
+          this.usuario = null;
+        }
+     } else {
+       this.token = '';
+       this.usuario = null;
+     }
    }
 
    login( usuario: Usuario) {
@@ -23,11 +48,12 @@ export class UsuarioService {
       return this.http.post(url, usuario).pipe(
         map((resp: any) => {
           console.log(resp);
-          console.log("usuario", resp.usuario._id);
-          console.log("usuario", resp.Usuario._id);
           localStorage.setItem('id', resp.usuario._id);
           localStorage.setItem('token', resp.token);
           localStorage.setItem('usuario', JSON.stringify(resp.usuario));
+
+          this.usuario = resp.usuario;
+          this.token = resp.token;
 
           return true;
         })
