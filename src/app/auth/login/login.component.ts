@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     this.usuarioService.login(usuario)
             .subscribe(resp => {
               console.log(resp);
+              this.router.navigate(['/dashboard']);
             });
   }
 

@@ -1,5 +1,20 @@
 <app-navbar></app-navbar>
-<app-sidebar></app-sidebar>
-<p>dashboard</p>
-<router-outlet></router-outlet>
+
+
+<div class="row">
+    <div *ngIf="this.stylesService.getMostrar()"  class="col-2">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-8 ml-3">
+        <p> hola mundo </p>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+       
+
+        
+
+
+
+
 

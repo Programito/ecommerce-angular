@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StylesService } from '../../services/service.index';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public stylesService: StylesService
+  ) { }
 
   ngOnInit() {
+  }
+
+  mostrar(){
+    // console.log("saludo");
+    this.stylesService.modMostrar();
   }
 
 }

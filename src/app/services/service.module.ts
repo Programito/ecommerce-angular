@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 
 import {
   UsuarioService,
-  LoginGuardGuard
+  LoginGuardGuard,
+  StylesService
 } from './service.index';
 
 @NgModule({

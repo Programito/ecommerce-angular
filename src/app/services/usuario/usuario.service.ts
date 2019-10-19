@@ -18,8 +18,8 @@ export class UsuarioService {
 
   constructor(
     public http: HttpClient) {
-    console.log('Servicio de usuario listo');
-    this.cargarStorage();
+      console.log('Servicio de usuario listo');
+      this.cargarStorage();
    }
 
    estaLogueado() {
