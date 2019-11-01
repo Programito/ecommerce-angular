@@ -5,8 +5,10 @@ import { URL_SERVICIOS } from '../../config/config';
 
 import Swal from 'sweetalert2';
 
-import { Observable, of, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError} from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -48,9 +50,9 @@ export class UsuarioService {
       return this.http.post(url, usuario).pipe(
         map((resp: any) => {
           console.log(resp);
-          localStorage.setItem('id', resp.usuario._id);
+          localStorage.setItem('id', resp.user._id);
           localStorage.setItem('token', resp.token);
-          localStorage.setItem('usuario', JSON.stringify(resp.usuario));
+          localStorage.setItem('usuario', JSON.stringify(resp.user));
 
           this.usuario = resp.usuario;
           this.token = resp.token;
@@ -61,7 +63,7 @@ export class UsuarioService {
    }
 
    crearUsuario(usuario: Usuario) {
-     let url= URL_SERVICIOS + '/usuario';
+     let url= URL_SERVICIOS + '/register';
 
      return this.http.post(url, usuario).pipe(
         map((resp: any) => {

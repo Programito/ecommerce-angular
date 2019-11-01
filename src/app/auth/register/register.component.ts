@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/service.index';
 import { Usuario } from '../../models/usuario.model';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,14 @@ export class RegisterComponent implements OnInit {
     let usuario = new Usuario(data.nombre, data.email, data.password);
 
     this.usuarioService.crearUsuario(usuario)
-        .subscribe(resp => this.router.navigate(['/login']));
+        .subscribe(
+          resp => this.router.navigate(['/login']),
+          err => {
+            console.log(err);
+            Swal.fire('Error', err.error.message, 'error');
+          }
+          );
+
   }
 
 }
