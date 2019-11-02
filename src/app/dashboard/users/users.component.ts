@@ -55,8 +55,24 @@ export class UsersComponent implements OnInit {
 
   borrarUsuario(usuario) {
 
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Deseas borrar a ' + usuario.email,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, !Eliminalo!'
+    }).then((borrar) => {
+        console.log(usuario.email);
+        if (borrar.value ) {
+          this.userService.removeUser(usuario._id)
+            .subscribe((borrado) => {
+              this.cargarAllUsers();
+          }, err => console.log(err)
+        );
+        }
+    });
   }
-
-
 
 }

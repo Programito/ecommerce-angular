@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '../../services/service.index';
 import { Usuario } from '../../models/usuario.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -35,7 +36,12 @@ export class ProfileComponent implements OnInit {
   }
 
   guardar(usuario: Usuario) {
-    console.log('guardar');
+    this.usuario.nombre = usuario.nombre;
+    this.userService.updateUser(this.usuario)
+    .subscribe((resp: any) => {
+        console.log(resp);
+        Swal.fire('Modificado', resp.email + ' ha sido modificado', 'success');
+    });
   }
 
 }
