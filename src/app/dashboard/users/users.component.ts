@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/service.index';
 import { Usuario } from '../../models/usuario.model';
-
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -19,7 +20,9 @@ export class UsersComponent implements OnInit {
   totalRegistros: number = 0;
 
 
-  constructor(public userService: UsersService) { }
+  constructor(
+    private router: Router,
+    public userService: UsersService) { }
 
   ngOnInit() {
     this.cargarAllUsers();
@@ -38,7 +41,8 @@ export class UsersComponent implements OnInit {
   }
 
   updateUser(id){
-    console.log(id);
+    const ruta = 'profile/' + id;
+    this.router.navigate([ruta]);
   }
 
   buscarUsuario(value) {

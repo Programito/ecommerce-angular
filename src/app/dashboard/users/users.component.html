@@ -47,9 +47,12 @@
                     <tbody>
                         <tr *ngFor="let usuario of usuarios">
                             <td>
-                                <button (click)="updateUser(usuario._id)" class="btn btn-success">
-                                    <i class="fas fa-edit"></i>
-                                    <span class="ml-2">Modificar</span>
+                                <!-- <a [routerLink]="['/profile/',usuario._id]"> <i class="fas fa-edit"></i>
+                                    <span class="ml-2">Modificar</span> </a>   -->
+                                  
+                                    <button   (click)="updateUser(usuario._id)" class="btn btn-success">
+                                          <i class="fas fa-edit"></i>
+                                    <span class="ml-2">Modificar</span> 
                                 </button>
                             </td>
                           

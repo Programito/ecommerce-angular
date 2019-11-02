@@ -6,7 +6,7 @@ import { URL_ECOMMERCE } from '../../config/config';
 import Swal from 'sweetalert2';
 
 // import { Observable, throwError} from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 
 
@@ -50,11 +50,10 @@ export class UsuarioService {
       return this.http.post(url, usuario).pipe(
         map((resp: any) => {
           console.log(resp);
-          localStorage.setItem('id', resp.user._id);
           localStorage.setItem('token', resp.token);
           localStorage.setItem('usuario', JSON.stringify(resp.user));
-
-          this.usuario = resp.usuario;
+          localStorage.setItem('id', resp.user._id);
+          this.usuario = resp.user;
           this.token = resp.token;
 
           return true;

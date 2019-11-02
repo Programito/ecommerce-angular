@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { OfertasComponent } from './ofertas/ofertas.component';
 import { UsersComponent } from './users/users.component';
+import { ProfileComponent } from './profile/profile.component';
 import { PromocionComponent } from './promocion/promocion.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardRoutingModule } from './dashboard-routing.modules';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -22,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         DashboardComponent,
         OfertasComponent,
         PromocionComponent,
-        UsersComponent
+        UsersComponent,
+        ProfileComponent
     ]
 })
 
