@@ -58,10 +58,16 @@ export class UsersService {
     }
   }
 
-  updateUser(usuario) {
+  updateUser(usuario: Usuario) {
     const url = URL_ECOMMERCE + '/users/' + usuario._id;
-    console.log(url);
-    const value = {"nombre": "test5"};
+    const value = {"nombre": usuario.nombre, "email": usuario.email, "token": this.token};
+    console.log("modificar: ", value);
+    return this.http.put(url, value);
+  }
+
+  updateRole(id,role) {
+    const url = URL_ECOMMERCE + '/users/role/' + id;
+    const value = {"role": role, "token": this.token}
     return this.http.put(url, value);
   }
 

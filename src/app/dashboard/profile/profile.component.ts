@@ -37,11 +37,30 @@ export class ProfileComponent implements OnInit {
 
   guardar(usuario: Usuario) {
     this.usuario.nombre = usuario.nombre;
+    this.usuario.email = usuario.email;
     this.userService.updateUser(this.usuario)
     .subscribe((resp: any) => {
         console.log(resp);
         Swal.fire('Modificado', resp.email + ' ha sido modificado', 'success');
-    });
+        this.renovar();
+    },
+    err => {
+      console.log(err);
+      Swal.fire('Error', 'El email debe ser único', 'error');
+      }
+    );
+  }
+
+  renovar() {
+    const user: Usuario = JSON.parse(localStorage.getItem('usuario'));
+    console.log(user[0]._id);
+    console.log(this.id);
+    if (user[0]._id === this.id) {
+      user[0].nombre = this.usuario.nombre;
+      user[0].email = this.usuario.email;
+      localStorage.setItem('usuario[0]', JSON.stringify(user));
+      localStorage.setItem('id', this.id);
+    }
   }
 
 }

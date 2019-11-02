@@ -49,8 +49,15 @@ export class UsersComponent implements OnInit {
 
   }
 
-  guardarUsuario(usuario) {
-
+  guardarUsuario(usuario: Usuario) {
+    this.userService.updateRole(usuario._id, usuario.role)
+      .subscribe((resp: any) => {
+          Swal.fire('Rol Modificado', 'El rol ' + usuario.email + ': ' + resp.role, 'success');
+          console.log(resp);
+      }, err => {
+        Swal.fire('Rol Modificado', 'Ha habido un error modificando el rol', 'error');
+        console.log(err);
+      });
   }
 
   borrarUsuario(usuario) {
