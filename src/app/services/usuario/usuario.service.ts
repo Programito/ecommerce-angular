@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import {HttpClient} from '@angular/common/http';
-import { URL_SERVICIOS } from '../../config/config';
+import { URL_ECOMMERCE } from '../../config/config';
 
 import Swal from 'sweetalert2';
 
-import { Observable, throwError} from 'rxjs';
+// import { Observable, throwError} from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 
@@ -46,7 +46,7 @@ export class UsuarioService {
    }
 
    login( usuario: Usuario) {
-      let url = URL_SERVICIOS + '/login';
+      let url = URL_ECOMMERCE + '/login';
       return this.http.post(url, usuario).pipe(
         map((resp: any) => {
           console.log(resp);
@@ -63,7 +63,7 @@ export class UsuarioService {
    }
 
    crearUsuario(usuario: Usuario) {
-     let url= URL_SERVICIOS + '/register';
+     let url= URL_ECOMMERCE + '/register';
 
      return this.http.post(url, usuario).pipe(
         map((resp: any) => {
