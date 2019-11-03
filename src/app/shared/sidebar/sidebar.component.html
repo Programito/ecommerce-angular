@@ -3,14 +3,13 @@
   <div [ngClass]="this.sytleService.getMostrar()? '' : 'toggled'" class="d-flex" id="wrapper">
 
     <div class="bg-dark border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading text-light">Start Bootstrap </div>
+      <div class="sidebar-heading text-light text-center">  {{nombre}} </div>
+      <div class="sidebar-heading text-light text-center"> Todas las secciones  </div>
       <div class="list-group list-group-flush ">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Status</a>
+        <a [routerLink]="['/profile/' + this.id]" class="list-group-item list-group-item-action bg-dark text-light">Perfil</a>
+        <a *ngIf="admin" [routerLink]="['/users']" class="list-group-item list-group-item-action bg-dark text-light">Usuarios</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Categorias</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Productos</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Carro</a>
       </div>
-    </div>
-  
+    </div>  
