@@ -58,7 +58,7 @@ export class ProfileComponent implements OnInit {
     if (user[0]._id === this.id) {
       user[0].nombre = this.usuario.nombre;
       user[0].email = this.usuario.email;
-      localStorage.setItem('usuario[0]', JSON.stringify(user));
+      localStorage.setItem('usuario', JSON.stringify(user));
       localStorage.setItem('id', this.id);
     }
   }
