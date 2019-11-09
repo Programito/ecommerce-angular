@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">PC-SHOP</a>
+    <a class="navbar-brand" href="#">1-4-ALL</a>
 
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a [ngClass]="this.stylesService.getMostrar() ? 'active' : ''" class="nav-link pointer" (click)="mostrar()">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Categorias</a>
+          <a class="nav-link" [routerLink]="['/categorias']">Categorias</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>

@@ -9,7 +9,8 @@ import {
   StylesService,
   UsersService,
   UploadFilesService,
-  CategoriaService
+  CategoriaService,
+  ProductsService
 } from './service.index';
 
 @NgModule({
@@ -23,7 +24,8 @@ import {
       StylesService,
       UsersService,
       UploadFilesService,
-      CategoriaService
+      CategoriaService,
+      ProductsService
     ],
     declarations: []
   })

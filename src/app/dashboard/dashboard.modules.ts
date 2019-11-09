@@ -9,6 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardRoutingModule } from './dashboard-routing.modules';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { ProductsByCategoryComponent } from './products-by-category/products-by-category.component';
 
 
 
@@ -19,7 +21,8 @@ import { CategoriasComponent } from './categorias/categorias.component';
         SharedModule,
         DashboardRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        PipesModule
     ],
     declarations: [
         DashboardComponent,
@@ -27,7 +30,8 @@ import { CategoriasComponent } from './categorias/categorias.component';
         PromocionComponent,
         UsersComponent,
         ProfileComponent,
-        CategoriasComponent
+        CategoriasComponent,
+        ProductsByCategoryComponent
     ]
 })
 

@@ -1,0 +1,25 @@
+<!--Spin de Cargando-->
+
+<div class="row animated fadeIn" *ngIf="cargando">
+    <div class="col-sm-12">
+        <div class="alert alert-warning text-center">
+            <strong> Cargando </strong>
+            <br>
+            <i class="fa fa-sync fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+    </div>
+</div>
+
+<div class="card-columns mt-3" *ngIf="!cargando">
+    
+        <div class="card" *ngFor= "let product of products" style="width: 18rem;">
+          <img [src]="product.i" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{product.nombre}}</h5>
+                <p class="card-text text-center">{{product.p}}</p>
+            </div>
+        </div>
+</div>
+
