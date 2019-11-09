@@ -10,7 +10,7 @@ export class ProductsService {
   constructor(public http: HttpClient) { }
 
   loadProductByCategory(id) {
-    const url = URL_ECOMMERCE + '/products/category/' + id;
+    const url = URL_ECOMMERCE + '/products/buscar/categories/' + id;
 
     return this.http.get(url);
   }

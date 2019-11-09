@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products/products.service';
 import { Product } from '../../models/product.model';
 
+
 @Component({
   selector: 'app-products-by-category',
   templateUrl: './products-by-category.component.html',
@@ -16,7 +17,8 @@ export class ProductsByCategoryComponent implements OnInit {
 
   constructor(
               public activatedRoute: ActivatedRoute,
-              public productsService: ProductsService) {
+              public productsService: ProductsService,
+              ) {
   activatedRoute.params
     .subscribe( params => {
           this.id = params['id'];
@@ -27,8 +29,8 @@ export class ProductsByCategoryComponent implements OnInit {
     this.productsService.loadProductByCategory(this.id)
       .subscribe((resp: any) => {
         this.products = resp;
-        console.log("products" ,this.products);
         this.cargando = false;
+        this.products.sort((a: any, b: any) => a.p - b.p);
       });
    }
 

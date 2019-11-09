@@ -1,5 +1,5 @@
 <!--Spin de Cargando-->
-
+<h2 class="mt-2 text-center"> Productos </h2>
 <div class="row animated fadeIn" *ngIf="cargando">
     <div class="col-sm-12">
         <div class="alert alert-warning text-center">
@@ -12,13 +12,13 @@
     </div>
 </div>
 
-<div class="card-columns mt-3" *ngIf="!cargando">
-    
-        <div class="card" *ngFor= "let product of products" style="width: 18rem;">
+<div *ngIf="!cargando" class="row mt-3"> 
+        <div class="col-4 mt-2" *ngFor= "let product of products">
+        <div class="card" style="width: 18rem;">
           <img [src]="product.i" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title text-center">{{product.nombre}}</h5>
-                <p class="card-text text-center">{{product.p}}</p>
+                <p class="card-text text-center">{{product.p}}€</p>
             </div>
         </div>
 </div>
