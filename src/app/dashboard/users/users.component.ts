@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
   cargando: boolean = true;
   desde: number = 0;
   totalRegistros: number = 0;
+  imgSrc;
 
 
   constructor(
@@ -82,4 +83,10 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  // downloadFile() {
+  //   let uri= 'localhost:3000/upload/5dc2a676f0057a2c6ce3d720';
+  //   this.service.getFile(uri).subscribe((res: any) => {
+  //   this.imgSrc = res;
+  // });
+  // }
 }

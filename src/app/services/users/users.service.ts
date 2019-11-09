@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { URL_ECOMMERCE } from '../../config/config';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { Usuario } from '../../models/usuario.model';
 import { throwError } from 'rxjs';
+import {Observable, of, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,12 +24,17 @@ export class UsersService {
   loadAllUser() {
     const url= URL_ECOMMERCE + '/users?count=true';
 
-    return this.http.get(url);
+    console.log('token ', this.token);
+
+    return this.http.get(`${url}&token=${this.token}`);
+
+  
   }
 
   loadUserById(id: string) {
     const url = URL_ECOMMERCE + '/users/' + id;
-    return this.http.get(url);
+    console.log("token:", this.token);
+    return this.http.get(`${url}?token=${this.token}`);
   }
 
   removeUser(id: string) {

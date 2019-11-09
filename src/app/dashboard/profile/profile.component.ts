@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '../../services/service.index';
 import { Usuario } from '../../models/usuario.model';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,7 +18,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     public activatedRoute: ActivatedRoute,
-    public userService: UsersService
+    public userService: UsersService,
+    public router: Router
   ) {
     activatedRoute.params
       .subscribe( params => {
@@ -42,25 +44,13 @@ export class ProfileComponent implements OnInit {
     .subscribe((resp: any) => {
         console.log(resp);
         Swal.fire('Modificado', resp.email + ' ha sido modificado', 'success');
-        this.renovar();
+        this.router.navigate(['/login']);
     },
     err => {
       console.log(err);
-      Swal.fire('Error', 'El email debe ser único', 'error');
+      Swal.fire('Error', err.error.error, 'error');
       }
     );
-  }
-
-  renovar() {
-    const user: Usuario = JSON.parse(localStorage.getItem('usuario'));
-    console.log(user[0]._id);
-    console.log(this.id);
-    if (user[0]._id === this.id) {
-      user[0].nombre = this.usuario.nombre;
-      user[0].email = this.usuario.email;
-      localStorage.setItem('usuario', JSON.stringify(user));
-      localStorage.setItem('id', this.id);
-    }
   }
 
 }

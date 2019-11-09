@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
                   console.log(resp);
                   this.router.navigate(['/dashboard']);
             },
-              err => Swal.fire('Error', err.error, 'error')
+              err => Swal.fire('Error', err.error.error, 'error')
             );
   }
 

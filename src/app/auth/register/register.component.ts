@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
           resp => this.router.navigate(['/login']),
           err => {
             console.log(err);
-            Swal.fire('Error', err.error, 'error');
+            Swal.fire('Error', err.error.error, 'error');
           }
           );
 
