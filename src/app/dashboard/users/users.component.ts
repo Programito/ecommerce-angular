@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../services/service.index';
+import { UsersService, StylesService } from '../../services/service.index';
 import { Usuario } from '../../models/usuario.model';
 import { Router } from '@angular/router';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import Swal from 'sweetalert2';
+import {URL_ECOMMERCE} from '../../config/config';
+
 
 
 @Component({
@@ -18,12 +21,13 @@ export class UsersComponent implements OnInit {
   cargando: boolean = true;
   desde: number = 0;
   totalRegistros: number = 0;
-  imgSrc;
+
 
 
   constructor(
     private router: Router,
-    public userService: UsersService) { }
+    public userService: UsersService,
+    public httpclient: HttpClient) { }
 
   ngOnInit() {
     this.cargarAllUsers();
@@ -38,6 +42,7 @@ export class UsersComponent implements OnInit {
           console.log(resp);
           this.totalRegistros = resp[this.usuarios.length - 1].user_number;
           this.usuarios.pop();
+          this.cargarImagen();
       });
   }
 
@@ -61,6 +66,16 @@ export class UsersComponent implements OnInit {
       });
   }
 
+  cargarImagen(){
+    for(let i=0;i<this.usuarios.length;i++){
+      // if(this.usuarios[i].img != undefined){
+        this.usuarios[i].img = URL_ECOMMERCE + '/upload/' + this.usuarios[i]._id;
+        console.log( this.usuarios[i].img);
+      // }
+    }
+  }
+
+
   borrarUsuario(usuario) {
 
     Swal.fire({
@@ -83,10 +98,4 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  // downloadFile() {
-  //   let uri= 'localhost:3000/upload/5dc2a676f0057a2c6ce3d720';
-  //   this.service.getFile(uri).subscribe((res: any) => {
-  //   this.imgSrc = res;
-  // });
-  // }
 }

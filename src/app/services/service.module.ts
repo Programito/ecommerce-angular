@@ -7,7 +7,9 @@ import {
   UsuarioService,
   LoginGuardGuard,
   StylesService,
-  UsersService
+  UsersService,
+  UploadFilesService,
+  CategoriaService
 } from './service.index';
 
 @NgModule({
@@ -19,7 +21,9 @@ import {
       UsuarioService,
       LoginGuardGuard,
       StylesService,
-      UsersService
+      UsersService,
+      UploadFilesService,
+      CategoriaService
     ],
     declarations: []
   })

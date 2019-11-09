@@ -4,6 +4,7 @@
 
     <div class="bg-dark border-right" id="sidebar-wrapper">
       <div class="sidebar-heading text-light text-center">  {{nombre}} </div>
+      <div class="sidebar-heading text-light text-center"> <img  [src]="img" alt="" class="img">  </div>
       <div class="sidebar-heading text-light text-center"> Todas las secciones  </div>
       <div class="list-group list-group-flush ">
         <a [routerLink]="['/profile/' + this.id]" class="list-group-item list-group-item-action bg-dark text-light">Perfil</a>

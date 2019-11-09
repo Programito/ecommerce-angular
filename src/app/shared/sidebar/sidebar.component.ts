@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StylesService } from '../../services/service.index';
 import { Usuario } from '../../models/usuario.model';
+import {URL_ECOMMERCE} from '../../config/config';
 
 
 @Component({
@@ -13,12 +14,14 @@ export class SidebarComponent implements OnInit {
   id: String;
   admin: Boolean = false;
   nombre: String;
+  img: String;
 
   constructor(public sytleService: StylesService) {
     let user = JSON.parse(localStorage.getItem('usuario'));
 
     this.id = user[0]._id;
     this.nombre = user[0].nombre;
+    this.img = URL_ECOMMERCE + '/upload/' + this.id;
     if (user[0].role === 'ADMIN_ROLE') {
       this.admin = true;
     }

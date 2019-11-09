@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '../../services/service.index';
 import { Usuario } from '../../models/usuario.model';
 import { Router } from '@angular/router';
+import {URL_ECOMMERCE} from '../../config/config';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,6 +16,9 @@ export class ProfileComponent implements OnInit {
   id: string;
   usuario: Usuario;
   cargando: boolean = true;
+
+  imagenSubir: File;
+  imagenTemp: string;
 
   constructor(
     public activatedRoute: ActivatedRoute,
@@ -33,6 +37,7 @@ export class ProfileComponent implements OnInit {
         (resp: any) => {
           this.usuario = resp;
           this.cargando = false;
+          this.usuario.img = URL_ECOMMERCE + '/upload/' + this.usuario._id;
       }, err => console.log(err)
       );
   }
@@ -52,5 +57,34 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
+
+  
+  seleccionImage (archivo: File) {
+    if (!archivo) {
+      this.imagenSubir = null;
+      return;
+    }
+
+    // en el type del navegador contenga image ej: image/png
+    if (archivo.type.indexOf('image')) {
+      Swal.fire('Sólo imagenes', 'El archivo seleccionado no es una imagen', 'error');
+      this.imagenSubir = null;
+      return;
+    }
+
+    this.imagenSubir = archivo;
+
+    // mostrar imagen a partir del archivo
+    let reader= new FileReader();
+    let urlImagenTemp= reader.readAsDataURL(archivo);
+
+    reader.onloadend = () => this.imagenTemp = reader.result as string;
+  }
+
+  cambiarImagen() {
+    this.userService.cambiarImagen(this.imagenSubir, this.usuario._id);
+  }
+
+
 
 }

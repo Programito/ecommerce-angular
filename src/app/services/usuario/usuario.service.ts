@@ -52,7 +52,7 @@ export class UsuarioService {
           console.log(resp);
           localStorage.setItem('token', resp.token);
           localStorage.setItem('usuario', JSON.stringify(resp.user));
-          localStorage.setItem('id', resp.user._id);
+          localStorage.setItem('id', resp.user[0]._id);
           this.usuario = resp.user;
           this.token = resp.token;
 

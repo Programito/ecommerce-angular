@@ -8,6 +8,7 @@ import { PromocionComponent } from './promocion/promocion.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardRoutingModule } from './dashboard-routing.modules';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CategoriasComponent } from './categorias/categorias.component';
 
 
 
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         OfertasComponent,
         PromocionComponent,
         UsersComponent,
-        ProfileComponent
+        ProfileComponent,
+        CategoriasComponent
     ]
 })
 

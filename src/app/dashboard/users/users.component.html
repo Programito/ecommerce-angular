@@ -47,13 +47,12 @@
                     <tbody>
                         <tr *ngFor="let usuario of usuarios">
                             <td>
-                                <!-- <a [routerLink]="['/profile/',usuario._id]"> <i class="fas fa-edit"></i>
-                                    <span class="ml-2">Modificar</span> </a>   -->
+                                <!-- <button [routerLink]="['/profile/',usuario._id]" class="btn btn-success">     
+                                    <i class="fas fa-edit"></i>
+                                    <span class="ml-2">Modificar</span></button> -->
                                   
-                                    <button   (click)="updateUser(usuario._id)" class="btn btn-success">
-                                          <i class="fas fa-edit"></i>
-                                    <span class="ml-2">Modificar</span> 
-                                </button>
+                                    <img   (click)="updateUser(usuario._id)" [src]="usuario.img" alt={{usuario.img}} class="rounded img pointer"> 
+                                      
                             </td>
                           
                             <td>{{usuario.nombre}}</td>
@@ -90,6 +89,3 @@
         </div>
     </div>
 </div>
-
-<!-- <img id="myImg" [src]="imgSrc" alt="Attached file" style="width: 100%">
-<button type="button" (click)="downloadFile()" id="imgBtn"> -->

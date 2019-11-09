@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { Usuario } from '../../models/usuario.model';
 import { throwError } from 'rxjs';
 import {Observable, of, from } from 'rxjs';
+import { UploadFilesService } from '../upload-files/upload-files.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class UsersService {
   user: Usuario;
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,
+              public uploadFilesServices: UploadFilesService) {
     console.log('Servicio de Users listo');
     this.token = localStorage.getItem('token');
     this.user = JSON.parse(localStorage.getItem('usuario'));
@@ -76,5 +78,20 @@ export class UsersService {
     const value = {"role": role, "token": this.token}
     return this.http.put(url, value);
   }
+
+  cambiarImagen( archivo: File, id: string) {
+    this.uploadFilesServices.subirArchivo(archivo,  id)
+    .then( (resp: any) => {
+      console.log('respuesta:' , resp);
+      this.user.img = resp.usuario.img;
+      let usuario: [Usuario] = JSON.parse(localStorage.getItem('usuario'));
+      usuario[0].img = this.user.img;
+      localStorage.setItem('usuario', JSON.stringify(usuario));
+      Swal.fire('Imagen actualizada', this.user.nombre, 'success');
+    })
+    .catch( resp => {
+      console.log(resp);
+    });
+}
 
 }
