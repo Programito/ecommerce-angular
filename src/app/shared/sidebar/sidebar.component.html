@@ -7,11 +7,12 @@
       <div class="sidebar-heading text-light text-center"> <img  [src]="img" alt="" class="img">  </div>
       <div class="sidebar-heading text-light text-center"> Todas las secciones  </div>
       <div class="list-group list-group-flush ">
+          <a [routerLink]="['/']" class="list-group-item list-group-item-action bg-dark text-light">Portada</a>
         <a [routerLink]="['/profile/' + this.id]" class="list-group-item list-group-item-action bg-dark text-light">Perfil</a>
         <a *ngIf="admin" [routerLink]="['/users']" class="list-group-item list-group-item-action bg-dark text-light">Usuarios</a>
         <a [routerLink]="['/categorias']" class="list-group-item list-group-item-action bg-dark text-light">Categorias</a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Productos</a>
         <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Carro</a>
+        <button (click)="logOut()" class="btn btn-dark">LogOut</button>
       </div>
     </div>  
     

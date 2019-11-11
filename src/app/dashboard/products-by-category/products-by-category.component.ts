@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products/products.service';
 import { Product } from '../../models/product.model';
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-products-by-category',
@@ -18,6 +18,7 @@ export class ProductsByCategoryComponent implements OnInit {
   constructor(
               public activatedRoute: ActivatedRoute,
               public productsService: ProductsService,
+              private router: Router
               ) {
   activatedRoute.params
     .subscribe( params => {
@@ -33,5 +34,9 @@ export class ProductsByCategoryComponent implements OnInit {
         this.products.sort((a: any, b: any) => a.p - b.p);
       });
    }
+
+   verDetalle(id) {
+    this.router.navigate(['/detail',id]);
+  }
 
 }

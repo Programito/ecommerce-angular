@@ -15,11 +15,14 @@
 <div *ngIf="!cargando" class="row mt-3"> 
         <div class="col-4 mt-2" *ngFor= "let product of products">
         <div class="card" style="width: 18rem;">
+        <p *ngIf="product.promocion" class="card-text text-success text-right">PROMOCIÓN</p>
+        <p *ngIf="product.oferta" class="card-text text-danger text-left">{{product.oferta.descuento}} %</p>
           <img [src]="product.i" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title text-center">{{product.nombre}}</h5>
                 <p class="card-text text-center">{{product.p}}€</p>
             </div>
+            <button (click)="verDetalle(product._id)" class="btn btn-success text-center">Ver detalle</button>
         </div>
 </div>
 

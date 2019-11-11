@@ -12,6 +12,9 @@ import { DashboardModule } from './dashboard/dashboard.modules';
 import {ServiceModule} from './services/service.module';
 
 import { AppComponent } from './app.component';
+import { PortadaComponent } from './dashboard/portada/portada.component';
+import { DetailProductComponent } from './dashboard/detail-product/detail-product.component';
+import { CartComponent } from './dashboard/cart/cart.component';
 
 
 

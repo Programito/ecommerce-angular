@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StylesService } from '../../services/service.index';
 import { Usuario } from '../../models/usuario.model';
 import {URL_ECOMMERCE} from '../../config/config';
+import { UsuarioService } from '../../services/usuario/usuario.service';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class SidebarComponent implements OnInit {
   img: String;
   token: string;
 
-  constructor(public sytleService: StylesService) {
+  constructor(public sytleService: StylesService,
+              public usuarioService: UsuarioService) {
     let user = JSON.parse(localStorage.getItem('usuario'));
     this.token = localStorage.getItem('token');
     this.id = user[0]._id;
@@ -31,6 +33,10 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.img = URL_ECOMMERCE + '/upload/' + this.id + "?token=" + this.token;
+  }
+
+  logOut() {
+    this.usuarioService.logOut();
   }
 
 

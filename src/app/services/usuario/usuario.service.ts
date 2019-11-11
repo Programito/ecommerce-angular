@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import { URL_ECOMMERCE } from '../../config/config';
 
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 // import { Observable, throwError} from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -19,7 +20,8 @@ export class UsuarioService {
   token: string;
 
   constructor(
-    public http: HttpClient) {
+    public http: HttpClient,
+    public router: Router) {
       console.log('Servicio de usuario listo');
       this.cargarStorage();
    }
@@ -72,4 +74,19 @@ export class UsuarioService {
       );
 
    }
+
+   logOut() {
+    this.usuario = null;
+    this.token = '';
+
+    // borra todo lo de la direccion
+    // localStorage.clear();
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+    localStorage.removeItem('menu');
+
+    this.router.navigate(['/login']);
+
+  }
 }

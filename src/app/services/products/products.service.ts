@@ -11,7 +11,21 @@ export class ProductsService {
 
   loadProductByCategory(id) {
     const url = URL_ECOMMERCE + '/products/buscar/categories/' + id;
+    return this.http.get(url);
+  }
 
+  loadPromociones() {
+    const url = URL_ECOMMERCE + '/product/buscar/promocion';
+    return this.http.get(url);
+  }
+
+  loadOfertas() {
+    const url = URL_ECOMMERCE + '/product/buscar/oferta';
+    return this.http.get(url);
+  }
+
+  loadProduct(id) {
+    const url = URL_ECOMMERCE + '/product/' + id;
     return this.http.get(url);
   }
 }

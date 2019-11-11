@@ -5,14 +5,12 @@
     <div *ngIf="this.stylesService.getMostrar()"  class="col-2">
         <app-sidebar></app-sidebar>
     </div>
-    <div  class="ml-3" [ngClass]="{'col-9 ml-3': this.stylesService.getMostrar(),
+    <div  class="ml-5" [ngClass]="{'col-9 ml-3': this.stylesService.getMostrar(),
                                    'col-12': !this.stylesService.getMostrar()}" >
         <router-outlet></router-outlet>
     </div>
 </div>
 
-
-<!-- -->
        
 
         

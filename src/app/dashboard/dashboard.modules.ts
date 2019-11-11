@@ -11,7 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProductsByCategoryComponent } from './products-by-category/products-by-category.component';
-
+import { DetailProductComponent } from './detail-product/detail-product.component';
+import { PortadaComponent } from './portada/portada.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -31,7 +33,10 @@ import { ProductsByCategoryComponent } from './products-by-category/products-by-
         UsersComponent,
         ProfileComponent,
         CategoriasComponent,
-        ProductsByCategoryComponent
+        ProductsByCategoryComponent,
+        DetailProductComponent,
+        PortadaComponent,
+        CartComponent
     ]
 })
 
