@@ -16,6 +16,8 @@ export class ProfileComponent implements OnInit {
   id: string;
   usuario: Usuario;
   cargando: boolean = true;
+  token: string;
+  imagen:string;
 
   imagenSubir: File;
   imagenTemp: string;
@@ -29,6 +31,7 @@ export class ProfileComponent implements OnInit {
       .subscribe( params => {
           this.id = params['id'];
       });
+    this.token = localStorage.getItem('token');
   }
 
   ngOnInit() {
@@ -37,7 +40,7 @@ export class ProfileComponent implements OnInit {
         (resp: any) => {
           this.usuario = resp;
           this.cargando = false;
-          this.usuario.img = URL_ECOMMERCE + '/upload/' + this.usuario._id;
+          this.usuario.img = URL_ECOMMERCE + '/upload/' + this.usuario._id + "?token=" + this.token;
       }, err => console.log(err)
       );
   }

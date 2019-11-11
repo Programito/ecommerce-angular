@@ -21,13 +21,16 @@ export class UsersComponent implements OnInit {
   cargando: boolean = true;
   desde: number = 0;
   totalRegistros: number = 0;
+  token: string;
 
 
 
   constructor(
     private router: Router,
     public userService: UsersService,
-    public httpclient: HttpClient) { }
+    public httpclient: HttpClient) { 
+      this.token = localStorage.getItem('token');
+    }
 
   ngOnInit() {
     this.cargarAllUsers();
@@ -69,7 +72,7 @@ export class UsersComponent implements OnInit {
   cargarImagen(){
     for(let i=0;i<this.usuarios.length;i++){
       // if(this.usuarios[i].img != undefined){
-        this.usuarios[i].img = URL_ECOMMERCE + '/upload/' + this.usuarios[i]._id;
+        this.usuarios[i].img = URL_ECOMMERCE + '/upload/' + this.usuarios[i]._id + "?token=" + this.token;
         console.log( this.usuarios[i].img);
       // }
     }

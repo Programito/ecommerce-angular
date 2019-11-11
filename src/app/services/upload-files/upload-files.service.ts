@@ -7,8 +7,10 @@ import { URL_ECOMMERCE } from '../../config/config';
   providedIn: 'root'
 })
 export class UploadFilesService {
-
-  constructor() { }
+  token: string;
+  constructor() { 
+    this.token = localStorage.getItem('token');
+  }
 
   subirArchivo(archivo: File, id: string) {
     return new Promise( (resolve, reject) => {
@@ -29,7 +31,7 @@ export class UploadFilesService {
             }
           }
       };
-      const url=  URL_ECOMMERCE + '/upload/' + id;
+      const url=  URL_ECOMMERCE + '/upload/' + id + '?token=' + this.token;
       console.log(url);
       xhr.open('PUT', url, true);
       xhr.send(formData);
