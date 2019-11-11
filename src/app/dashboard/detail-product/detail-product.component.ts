@@ -42,6 +42,11 @@ export class DetailProductComponent implements OnInit {
 
   comprar() {
     console.log(this.cantidad);
+    this.productService.addProduct(this.id, this.cantidad)
+        .subscribe((resp: any) => {
+            console.log(resp);
+        });
+
   }
 }
 
