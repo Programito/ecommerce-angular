@@ -13,8 +13,9 @@
 </div>
 
 <div *ngIf="!cargando" class="row mt-3"> 
-        <div class="col-4 mt-2" *ngFor= "let product of products">
+        <div class="col-3 mt-2" *ngFor= "let product of products">
         <div class="card" style="width: 18rem;">
+        <p *ngIf="product.promocion" class="card-text text-success text-left">PROMOCIÓN</p>
           <img [src]="product.i" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title text-center">{{product.nombre}}</h5>

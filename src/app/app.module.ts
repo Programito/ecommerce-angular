@@ -12,6 +12,7 @@ import { DashboardModule } from './dashboard/dashboard.modules';
 import {ServiceModule} from './services/service.module';
 
 import { AppComponent } from './app.component';
+import { PortadaComponent } from './dashboard/portada/portada.component';
 
 
 

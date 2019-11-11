@@ -14,4 +14,16 @@ export class ProductsService {
 
     return this.http.get(url);
   }
+
+  loadPromociones() {
+    const url = URL_ECOMMERCE + '/product/buscar/promocion';
+
+    return this.http.get(url);
+  }
+
+  loadOfertas() {
+    const url = URL_ECOMMERCE + '/product/buscar/oferta';
+    return this.http.get(url);
+  }
+
 }

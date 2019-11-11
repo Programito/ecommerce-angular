@@ -5,12 +5,14 @@ import { OfertasComponent } from './ofertas/ofertas.component';
 import { UsersComponent } from './users/users.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PromocionComponent } from './promocion/promocion.component';
+import { PortadaComponent } from './portada/portada.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardRoutingModule } from './dashboard-routing.modules';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProductsByCategoryComponent } from './products-by-category/products-by-category.component';
+
 
 
 
@@ -31,7 +33,8 @@ import { ProductsByCategoryComponent } from './products-by-category/products-by-
         UsersComponent,
         ProfileComponent,
         CategoriasComponent,
-        ProductsByCategoryComponent
+        ProductsByCategoryComponent,
+        PortadaComponent
     ]
 })
 
