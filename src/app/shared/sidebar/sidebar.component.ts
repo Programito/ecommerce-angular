@@ -31,7 +31,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.img = URL_ECOMMERCE + '/upload/' + this.id + "?token=" + this.token;
-    console.log(this.img);
   }
 
 

@@ -23,8 +23,17 @@ export class CategoriasComponent implements OnInit {
       .subscribe((resp: any) => {
           console.log(resp);
           this.categorias = resp;
-          this.categorias.sort((a: any, b: any) => a.categoria - b.categoria);
+          this.categorias.sort((a: any, b: any) => {
+            if (a.categoria > b.categoria) {
+              return 1;
+            }
+            if (a.categoria < b.categoria) {
+              return -1;
+            }
+            return 0;
+          });
         });
+    console.log(this.categorias);
   }
 
 }
