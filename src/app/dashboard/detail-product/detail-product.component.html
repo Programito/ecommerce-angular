@@ -17,9 +17,9 @@
     <div class="col-5 mt-4">
         <h5 *ngIf="product.promocion" class="text-success text-right">PROMOCIÓN</h5>
         <h3 class="text-center mt-4">{{product.nombre}}</h3>
-        <h4 class="text-right mt-2">{{product.p}} €</h4>
+        <h4 class="text-right mt-2">{{product.p | euro}} </h4>
         <h5 *ngIf="product.oferta" class="text-danger text-right mt-2">Descuento: {{product.oferta.descuento}} %</h5>
         <input  [(ngModel)]="cantidad" type="number" class="mt-5">
-        <button (click)="comprar()">Comprar</button>
+        <button (click)="comprar()" class="btn btn-success ml-4">Comprar</button>
     </div>
 </div>

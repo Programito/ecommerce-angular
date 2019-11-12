@@ -20,7 +20,7 @@
           <img [src]="product.i" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title text-center">{{product.nombre}}</h5>
-                <p class="card-text text-center">{{product.p}}€</p>
+                <p class="card-text text-center">{{product.p | euro}}</p>
             </div>
             <button (click)="verDetalle(product._id)" class="btn btn-success text-center">Ver detalle</button>
         </div>

@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CategoriaPipe } from './categoria.pipe';
+import { EuroPipe } from './euro.pipe';
 
 @NgModule({
   imports: [
 
   ],
   declarations: [
-    CategoriaPipe
+    CategoriaPipe,
+    EuroPipe
   ],
   exports: [
-    CategoriaPipe
+    CategoriaPipe,
+    EuroPipe
   ]
 })
 export class PipesModule { }

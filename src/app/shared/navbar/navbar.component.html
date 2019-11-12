@@ -6,29 +6,13 @@
           <a [ngClass]="this.stylesService.getMostrar() ? 'active' : ''" class="nav-link pointer" (click)="mostrar()">Menu</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/']">Portada</a>
+          </li>
+        <li class="nav-item">
           <a class="nav-link" [routerLink]="['/categorias']">Categorias</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-         <li class="nav-item mx-5">
-        </li>
-     
-       
       </ul>
       
 
 
-      <form class="form-inline my-2 my-lg-0">
-         
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0 mr-5" type="submit">Buscar</button>
-        <select class="form-control mr-2">
-            <option>Elegir idioma</option>
-            <option>Español</option>
-            <option>Català</option>
-            <option>Inglés</option>
-          </select>
-      </form>
-s
   </nav>

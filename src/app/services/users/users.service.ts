@@ -93,4 +93,9 @@ export class UsersService {
     });
 }
 
+    buscarUser(termino: string) {
+      const url = URL_ECOMMERCE + '/users/buscar/regex/' + termino + '?token=' + this.token;
+      return this.http.get(url);
+    }
+
 }

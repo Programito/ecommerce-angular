@@ -22,9 +22,11 @@
       <img [src]="promo.i" class="card-img-top">
         <div class="card-body">
             <p class="card-text text-center">{{promo.nombre}}</p>
-            <p class="card-text text-center">{{promo.p}}€</p>
+            <p class="card-text text-center">{{promo.p | euro}}</p>
         </div>
+        <div class="ml-2 mr-2 text-center">
         <button (click)="verDetalle(promo._id)" class="btn btn-success text-center">Ver detalle</button>
+        </div>
     </div>
 </div>
 
@@ -50,8 +52,10 @@
       <img [src]="oferta.i" class="card-img-top">
         <div class="card-body">
             <p class="card-text text-center h6">{{oferta.nombre}}</p>
-            <p class="card-text text-center h6">{{oferta.p}}€</p>
+            <p class="card-text text-center h6">{{oferta.p | euro}}</p>
         </div>
+        <div class="ml-2 mr-2 text-center">
         <button (click)="verDetalle(oferta._id)" class="btn btn-success text-center">Ver detalle</button>
+        </div>
     </div>
 </div>

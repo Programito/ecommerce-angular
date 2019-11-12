@@ -54,9 +54,7 @@ export class UsersComponent implements OnInit {
     this.router.navigate([ruta]);
   }
 
-  buscarUsuario(value) {
-
-  }
+ 
 
   guardarUsuario(usuario: Usuario) {
     this.userService.updateRole(usuario._id, usuario.role)
@@ -101,4 +99,20 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  buscarUsuario(value) {
+    if (!value) {
+      this.cargarAllUsers();
+      return;
+    }
+
+    this.cargando = true;
+
+    this.userService.buscarUser(value)
+      .subscribe((users: Usuario[]) => {
+        this.usuarios = users;
+        this.cargando = false;
+      })
+  }
+
 }
+

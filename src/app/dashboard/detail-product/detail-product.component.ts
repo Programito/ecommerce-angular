@@ -29,18 +29,31 @@ export class DetailProductComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.productService.loadProduct(this.id)
-      .subscribe((resp: any) => {
-        this.product = resp;
-        this.cargando = false;
-        console.log(this.product);
-      },
-      err => {console.log('id de producto no existe: ', err);
-              this.router.navigate(['/']);
-            });
+    // this.productService.loadProduct(this.id)
+    //   .subscribe((resp: any) => {
+    //     this.product = resp;
+    //     this.cargando = false;
+    //     console.log(this.product);
+    //   },
+    //   err => {console.log('id de producto no existe: ', err);
+    //           this.router.navigate(['/']);
+    //         });
+    this.cargarProducts();
 
   }
 
+  cargarProducts() {
+    this.productService.loadProduct(this.id)
+    .subscribe((resp: any) => {
+      this.product = resp;
+      this.cargando = false;
+      console.log(this.product);
+    },
+    err => {console.log('id de producto no existe: ', err);
+            this.router.navigate(['/']);
+          });
+
+  }
   comprar() {
     // console.log(this.cantidad);
     if (this.cantidad > 0) {
@@ -49,6 +62,7 @@ export class DetailProductComponent implements OnInit {
             console.log(resp);
             let mensaje = `Se han añadido ${this.cantidad} de ${this.product.nombre}`;
             Swal.fire('Producto Añadido', mensaje, 'success');
+            this.cargarProducts();
         },
         err => {
               console.log(err);
