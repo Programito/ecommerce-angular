@@ -7,6 +7,7 @@ export class Product {
         public p: number,
         public cantidad: number,
         public oferta?: Oferta,
+        public promocion?: any,
         public i?: string,
         public _id?: string,
     ) {}
