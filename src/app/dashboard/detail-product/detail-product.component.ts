@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
 
 
+
 @Component({
   selector: 'app-detail-product',
   templateUrl: './detail-product.component.html',
@@ -41,12 +42,20 @@ export class DetailProductComponent implements OnInit {
   }
 
   comprar() {
-    console.log(this.cantidad);
-    this.productService.addProduct(this.id, this.cantidad)
+    // console.log(this.cantidad);
+    if (this.cantidad > 0) {
+      this.productService.addProduct(this.id, this.cantidad)
         .subscribe((resp: any) => {
             console.log(resp);
-        });
+            let mensaje = `Se han añadido ${this.cantidad} de ${this.product.nombre}`;
+            Swal.fire('Producto Añadido', mensaje, 'success');
+        },
+        err => {
+              console.log(err);
+              Swal.fire('Error', err.error.error, 'error');
+              });
 
+    }
   }
 }
 

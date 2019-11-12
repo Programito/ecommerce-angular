@@ -10,10 +10,11 @@
     </div>
 </div>
 <div *ngIf="!cargando" class="row">
-    <div class="col-4">
-        <img [src]="product.i" class="card-img-top">
+    <div class="col-4 mt-4">
+        <h5 clas='text-left mt-4'>Stock: {{product.cantidad}}</h5>
+        <img [src]="product.i" class="card-img-top mt-2">
     </div>
-    <div class="col-5">
+    <div class="col-5 mt-4">
         <h5 *ngIf="product.promocion" class="text-success text-right">PROMOCIÓN</h5>
         <h3 class="text-center mt-4">{{product.nombre}}</h3>
         <h4 class="text-right mt-2">{{product.p}} €</h4>
