@@ -82,6 +82,7 @@ export class UsuarioService {
     // borra todo lo de la direccion
     // localStorage.clear();
 
+    console.log("log out");
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
 
