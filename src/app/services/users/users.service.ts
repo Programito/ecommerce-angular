@@ -30,7 +30,6 @@ export class UsersService {
 
     return this.http.get(`${url}&token=${this.token}`);
 
-  
   }
 
   loadUserById(id: string) {

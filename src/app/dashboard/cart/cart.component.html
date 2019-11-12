@@ -1,1 +1,53 @@
-<p>cart works!</p>
+<div class="row animated fadeIn" *ngIf="cargando">
+    <div class="col-sm-12">
+        <div class="alert alert-warning text-center">
+            <strong> Cargando </strong>
+            <br>
+            <i class="fa fa-sync fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!cargando">
+<div class="row animated fadeIn mt-5" *ngIf="!cargando">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+    
+                    <h3 class="card-title">Carrito</h3>
+                    <table class="table table-hover table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th> Precio </th>
+                                <th> Nombre </th>
+                                <th> Precio Unitario </th>
+                                <th> Cantidad </th>
+                                <th> Cantidad a retirar </th>
+                                <th> Retirarlo </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of cart.products">
+                                <td>{{product.precio * product.cantidad}}</td>
+                              
+                                <td>{{product.product.nombre}}</td>
+                                <td>{{product.precio}}</td>
+                               
+                                <td>{{product.cantidad}}</td>
+                                <td><input [(ngModel)]="product.borrar"></td>
+                                <td><button (click)="borrarProducto(product.product._id, product.borrar,product.product.nombre)" class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                        <span class="ml-2">Retirar</span>
+                                    </button></td>
+                          
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h5 class="text-success text-left">Precio total: {{cart.total}} €</h5>
+</div>
